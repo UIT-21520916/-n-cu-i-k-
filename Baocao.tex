@@ -1,0 +1,380 @@
+ \documentclass [14pt, a4paper]{report}
+ 
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{svg}
+\usepackage[bottom]{footmisc}
+\usepackage{tikz}
+\usepackage[section]{placeins}
+\usepackage[vietnamese]{babel}
+
+% \renewcommand{\baselinestretch}{1.5}
+\setlength{\parskip}{1.5em}
+\usepackage[section]{minted}
+\usepackage{xcolor}
+
+
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+
+\renewcommand{\arraystretch}{1.5}
+
+\usepackage[hidelinks]{hyperref}
+
+
+\renewcommand\listingscaption{Listing}
+\renewcommand\listoflistingscaption{List of Listings}
+\usepackage[left=3cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{scrhack}
+\usepackage{tocbasic}
+\usepackage{graphicx}
+\usepackage{tabularx}
+
+
+\usepackage{indentfirst}
+\geometry{a4paper, margin=1in}
+
+
+
+\thispagestyle{empty}
+\def \DEPARTEMENT {\textbf{ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH}}
+
+\def \COURSENUM {\textbf{Đại học Công Nghệ Thông Tin}}
+
+
+\def \REPORTTITLE {\textbf{BÁO CÁO}}
+\def \STUDENTNAME {Student's Name}
+\def \STUDENTID {STUDNUM}
+\def \INSTRUCTOR {Instructor's Name}
+
+%------------------------------------------------%
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0em}
+\usepackage{indentfirst}
+\begin{document}
+\fontsize{24pt}
+\pagenumbering{}
+    \begin{center}
+        \Large{\DEPARTEMENT} \\
+        \Large{\COURSENUM\;\;\COURSENAME} \\
+       
+        \hfill \\
+         \graphicspath{ {images/} }
+    \includegraphics[width=0.5\textwidth]{LogoUIT.jpg}
+    
+     \hfill \\
+    IT003.M21.ANTN
+    
+    \textbf{Giảng viên:} Thầy Nguyễn Thanh Sơn
+    
+    \textbf{ĐỒ ÁN CUỐI KÌ – Phân nhóm ảnh }
+    
+    
+    
+    
+    \hfill \\
+    \hfill \\
+    \hfill \\
+    \hfill \\
+    \hfill \\
+        \textbf{\LARGE{\REPORTTITLE}}
+         \hfill \\
+    \hfill \\
+    \hfill \\
+    \hfill \\
+   
+        
+        
+Sinh viên thực hiện: Lưu Gia Huy \\
+MSSV: 21520916\\
+Điện thoại: 0784402312\\
+Mail: 21520916@gm.uit.edu.vn
+
+
+
+        
+    \end{center}
+ \newpage
+ \fontsize{13}{18}\selectfont
+
+ \tableofcontents 
+
+\textcolor{black}{
+\chapter{MÔ TẢ BÀI TOÁN} }
+
+\section{Đề bài}
+\setlength{\parindent}{1cm}
+Phân nhóm ảnh là một bài toán quan trọng trong lĩnh vực thị giác máy tính.
+Trong bài tập này, các bạn sẽ được cung cấp\textbf{ N} ma trận có kích thước gồm \textbf{m} hàng và \textbf{n} cột đại diện cho \textbf{N} tấm ảnh. Mỗi phần tử trong mỗi ma trận nói trên là số nguyên không âm có giá trị từ\textbf{ 0} đến \textbf{255}. 
+
+
+Biết rằng, mỗi tấm ảnh trên là chân dung của một người nào đó, và một người có thể có nhiều tấm ảnh khác nhau với số phần tử tương ứng khác nhau trong hai ma trận không vượt quá \textbf{k} với\textbf{ k} là một số nguyên dương cho trước nhỏ hơn \textbf{(2/100)*m*n}. Hai tấm ảnh được coi là khác nhau nếu chúng có nhiều hơn\textbf{ k} phần tử tương ứng khác nhau. Đầu vào sẽ là danh sách gồm\textbf{ N} cặp số định danh duy nhất và ma trận với kích thước gồm\textbf{ m} hàng và\textbf{ n } cột.
+
+
+Biết rằng sẽ chỉ có \textbf{ M} người xuất hiện trong dữ liệu đầu vào đã nêu, trong đó\textbf{ M < N}. Hãy viết chương trình in ra \textbf{ M} dòng, mỗi dòng sẽ chứa các số định danh tăng dần sao cho ma trận của các định danh này đều biểu diễn chân dung của một người.
+
+
+Bạn vui lòng sắp xếp \textbf{ M} dòng này theo thứ tự của số định danh đầu tiên của mỗi dòng tăng dần. Biết rằng \textbf{ m, n} có giá trị tối đa là \textbf{32}; \textbf{N} có giá trị tối đa là \textbf{1000}.
+
+
+Tuy nhiên, trong báo cáo, sinh viên có thể cho thêm một số phân tích khác khi \textbf{ m, n, và N } có giá trị lớn hơn.
+\section{Xác định input, output}
+Dựa vào đề bài trên cụ thể là các câu, cụm từ:
+\begin{itemize}
+\fontsize{13}{18}\selectfont
+  \item  Với\textbf{ k} là một số nguyên dương cho trước nhỏ hơn \textbf{(2/100)*m*n}
+  \item Các bạn sẽ được cung cấp\textbf{ N} ma trận có kích thước gồm \textbf{m} hàng và \textbf{n} cột đại diện cho \textbf{N} tấm ảnh
+    \item  Đầu vào sẽ là danh sách gồm\textbf{ N} cặp số định danh duy nhất và ma trận với kích thước gồm\textbf{ m} hàng và\textbf{ n } cột.
+\end{itemize}
+
+\hfill\\
+Nên ta sẽ có :
+\begin{itemize}
+\fontsize{13}{18}\selectfont
+  \item  \textbf{Input}:  \textbf{N, m, n, k} và \textbf{N cặp} mã định danh, mảng 2 chiều có kích thước \textbf {mxn}
+  \item \textbf{Output}: \textbf{M} hàng, với mỗi hàng là các mã định danh của các ảnh của cùng 1 người được sắp xếp từ bé đến lớn theo mã số định danh
+\end{itemize}
+
+\section{Ý tưởng}
+\begin{itemize}
+\fontsize{13}{18}\selectfont
+  \item Dùng mảng động chứa các danh sách liên kết đơn.
+  \item Mỗi danh sách liên kết đơn chứa các node, mỗi node chứa các mã định danh, mảng 2 chiều thỏa điều kiện cùng là ảnh của 1 người. 
+    \item Sau đó sắp xếp các node trong danh sách liên kết đơn theo thứ tự tăng dần của mã định danh. 
+    \item Tiếp đến sắp xếp các danh sách liên kết đơn trong mảng động theo thứ tự tăng dần của mã định danh thuộc các head của các danh sách.
+    \item Sau cùng sẽ in ra các mã định danh của từng node của từng danh sách liên kết theo chỉ số mảng tăng dần
+\end{itemize}
+
+
+\textcolor{black}{\chapter{MÔ TẢ THUẬT TOÁN} }
+\section{Khởi tạo}
+\begin{itemize}
+\fontsize{13}{18}\selectfont
+
+  \item Khởi tạo kiểu dữ liệu node chứa: mảng 2 chiều kích thước tối đa là 32x32, 1 biến kiểu int lưu giá trị của mã định danh, 1 con trỏ next trỏ tới node tiếp theo trong danh sách liên kết.
+  \item Khởi tạo kiểu dữ liệu là linkedlist chứa: 2 con trỏ, 1 là con trỏ head trỏ tới phần tử đầu tiên của danh sách liến kết, 1 con trỏ tail trỏ tới phần tử cuối cùng của danh sách liên kết.
+    \item  Khởi tạo 1 mảng động các linkedlist
+    \item  Khởi tạo và sử dụng hàm creatnode để tạo 1 node mới
+    \item  Khởi tạo và sử dụng hàm createlist để tạo 1 cái list mới, và biến num\_crealist để điểm số lần ta tạo ra các linkedlist tiện cho quá trình quản lí dữ liệu
+   
+\end{itemize}
+
+\section{Lưu trữ}
+\subsection{Nơi lưu trữ}
+\begin{itemize}
+\fontsize{13}{18}\selectfont
+
+  \item Nơi lưu trữ 1 tấm ảnh và mã định danh sẽ là 1 cái node được định nghĩa như trên
+  \item Nơi lưu trữ các tấm ảnh của cùng 1 người sẽ là 1 danh sách liên kết đơn
+    \item  Nơi lưu trữ tất cả ảnh của nhiều người sẽ là 1 mảng động chứa các danh sách liên kết đơn
+    
+   
+\end{itemize}
+\subsection{Cách xử lí và lưu trữ các node }
+\begin{itemize}
+\fontsize{13}{18}\selectfont
+
+  \item Ta có hai hàm để thêm các node vào đầu hoặc cuối danh sách liên kết lần lượt là addhead(), addtail()
+  \item Ta mặc định để cho tấm ảnh đầu tiên được nhập vào sẽ là node đầu tiên tức node head của danh sách liên kết có chỉ số i=0 của mảng động
+    \item  Các ảnh tiếp theo được so sánh lần lượt ở qua từng node của 1 danh sách liên kết đơn, và từng danh sách liên kết với chỉ số tăng dần từ 0 đến num\_crelist, nếu k tấm ảnh ấy k thỏa điều kiện để thuộc bất cứ danh sách liên kết đơn nào thì ta sẽ tạo 1 danh sách mới, đồng nghĩa là num\_crelist tăng lên 1 đơn vị
+    \end{itemize}
+\subsection{Thuật toán xử lí lưu trữ}
+
+    1.  \textbf{For} lần lượt các danh sách liên kết đã được khởi tạo
+    
+    
+ \hspace{1cm}  1.   int upd ← 0
+ 
+ 
+\hspace{1cm}        	2.  \textbf{For} mỗi node != NULL của danh sách liên kết
+
+
+           \hspace{2cm} 	1.  int cntdff ← 0
+           
+           
+           \hspace{2cm} 	2.  \textbf{For} từng hàng của mảng
+           
+           
+                \hspace{3cm}		1.  \textbf{For} từng cột của mảng
+                
+                
+                    	\hspace{4cm}		1.  \textbf{If} ở cùng 1 vị trí thuộc 2 mảng nhưng có giá trị khác nhau
+                    	
+                    	
+                    	\hspace{5cm}			\textbf{Then}   cntdff++
+                    	
+                    	
+           	\hspace{2cm}	3.  upd ← cntdff
+           	
+           	
+           \hspace{2cm} 	4.  \textbf{If} cntdff > k
+           
+           
+            	\hspace{3cm}	\textbf{Then}  thoát khỏi vòng lặp do vi phạm điều kiện
+            	
+            	
+  \hspace{1cm}      	3.  \textbf{If} upd <= k
+  
+  
+        	\hspace{2cm}	\textbf{Then}
+        	
+        	
+            	\hspace{3cm}	1.  Thêm node đang xét vào sau danh sách liên kết đang xét
+            	
+            	
+            	\hspace{3cm}	2.  Thoát vòng lặp
+            	
+            	
+    2.  Tạo thêm 1 cái danh sách liên kết mới và thêm node đang xét vào
+
+   
+\section{Sắp xếp}
+\subsection{Sắp xếp các node trong cùng 1 linkedlist thoe mã định danh}
+Ta sẽ dùng 2 vòng lặp để so sánh nếu node đang xét lớn hơn node sau nó thì ta sẽ thực hiện đổi giá trị mã định danh của 2 node\
+\subsection{Thuật toán sắp xếp các node trong cùng 1 linkedlist}
+    \textbf{For}  node != NULL của danh sách liên kết 
+    
+    
+  \hspace{1cm}     	\textbf{For}  node!= NULL kế bên node đang xét 
+  
+  
+       \hspace{2cm}        	\textbf{If} giá trị của node đang xét > giá trị của node xếp sau nó
+       
+       
+            \hspace{3cm}   		\textbf{Then}  hoán đổi giá trị của 2 node 
+
+\subsection{Sắp xếp các danh sách liên kết trong mảng động theo mã định danh của node đầu tiên của linkedlist }
+Ta dùng thuật toán quicksort để sắp xếp các danh sách liên kết theo mã định danh của các head thuộc các danh sách liên kết
+\subsection{Sơ lược về thuật toán Quicksort}
+Thuật toán sắp xếp quick sort là một thuật toán chia để trị( Divide and Conquer algorithm). Nó chọn một phần tử trong mảng làm điểm đánh dấu(pivot). Thuật toán sẽ thực hiện chia mảng thành các mảng con dựa vào pivot đã chọn. Việc lựa chọn pivot ảnh hưởng rất nhiều tới tốc độ sắp xếp. Nhưng máy tính lại không thể biết khi nào thì nên chọn theo cách nào. Dưới đây là một số cách để chọn pivot thường được sử dụng:
+
+\begin{itemize}
+\fontsize{13}{18}\selectfont
+
+  \item Luôn chọn phần tử đầu tiên của mảng
+  \item Luôn chọn phần tử cuối cùng của mảng
+    \item  	Chọn một phần tử random
+    \item Chọn một phần tử có giá trị nằm giữa mảng
+  
+   
+\end{itemize}
+\setlength{\parindent}{0cm}
+\hfill
+\hfill
+
+Đánh giá thuật toán sắp xếp quick sort:\\
+Độ  phức tạp thuật toán của quick sort
+\begin{itemize}
+\fontsize{13}{18}\selectfont
+
+  \item 	Trường hợp tốt: O(nlog(n))
+  \item Trung bình: O(nlog(n))
+    \item  Trường hợp xấu: O(n^2)
+
+  Không gian bộ nhớ sử dụng: O(log(n))
+   
+\end{itemize}
+
+
+\subsection{Thuật toán sắp xếp các linkedlist trong mảng}
+Phân đoạn mảng động và xét giá trị của các head \\
+1.  i ← vị trí đầu đoạn đang xét\\
+2.  j ←  vị trí cuối đoạn đang xét\\
+3.  pivot ← giá trị của phần tử node ở giữa đoạn đang xét\\
+4.\textbf{While } i <= j
+    
+    
+   \hspace{1cm}         1.\textbf{While}  giá trị của head thứ i < pivot
+   
+   
+          \hspace{2cm}  		1.tăng i lên 1 đơn vị
+          
+          
+     \hspace{1cm}       2.\textbf{While}  giá trị của head thứ j > pivot
+     
+     
+              \hspace{2cm}  	1.giảm j đi 1 đơn vị
+              
+              
+      \hspace{1cm}      3.\textbf{If}  i <= j
+      
+      
+          \hspace{2cm}     		\textbf{Then }
+          
+          
+  \hspace{3cm}  1.  hoán đổi vị trí của 2 danh sách liên kết đơn có giá trị của phần tử node là 2 giá trị đang xét
+  
+  
+        \hspace{3cm}      			2.  tăng i lên 1 đơn vị
+        
+        
+      \hspace{3cm}         		3.  giảm j đi 1 đơn vị
+      
+      
+5. \textbf{If}  j > vị trí đầu đoạn đang xét
+
+
+   \hspace{1cm}        	\textbf{Then} tiếp tục Phân đoạn mảng động và xét giá trị của các head với khi này vị trí phần tử đầu đoạn là low, cuối đoạn là j
+   
+ 6.\textbf{If}  i < vị trí cuối đoạn đang xét
+ 
+ 
+   \hspace{1cm}      	\textbf{Then}  tiếp tục Phân đoạn mảng động và xét giá trị của các head với khi này vị trí phần tử đầu đoạn là i, cuối đoạn là high
+            
+
+\section{Xuất ra màn hình}
+\setlength{\parindent}{1cm}
+Vì đã được sắp xếp nên ta chỉ việc xét từ đầu đến cuối mảng ứng với mỗi danh sách trong mảng ta sẽ in từ đầu đến cuối các mã định danh của các tấm ảnh.
+
+\textcolor{black}{
+\chapter{CÀI ĐẶT CHƯƠNG TRÌNH \& LỜI KẾT} }
+\section{Link Github}
+
+% \setgithub{https://github.com/duck2345}
+GitHub:
+\href{https://github.com/UIT-21520916/Do-an-cuoi-ki.git}{\fontsize{14}{}\selectfont  
+     github.com/LuuGiaHuy\_21520916}
+\section{Công cụ sử dụng }
+\begin{itemize}
+\fontsize{13}{18}\selectfont
+  \item Code được viết trên Visual Studio Code
+  \item Bài báo cáo được viết bằng latex
+    
+\end{itemize}
+\section{Lời kết}
+\setlength{\parindent}{1cm}
+Bài báo cáo của em sẽ có nhiều thiếu xót, do bản thân em còn ít kinh nghiệm trong việc viết báo cáo lẫn tư duy giải thuật. Em mong quý thầy cô có thể góp ý,  nhắc nhở để em rút kinh nghiệm và làm tốt hơn ở những lần sau ạ.
+
+
+Cuối cùng em xin cảm ơn quý thầy cô, chúc quý thầy cô thật nhiều sức khỏe!
+
+\setlength{\parindent}{0cm}
+\hfill \\
+\begin{flushright}
+Ngày 01 tháng 06 năm 2022 
+\end{flushright}
+\begin{flushright}
+ \hfill \\
+\textbf{\textit{Người thực hiện }}
+
+\graphicspath{ {images/} }
+ \includegraphics[width=0.2\textwidth]{huy.jpg}
+
+ Lưu Gia Huy \hspace{3.5cm}
+\end{flushright}
+
+
+
+
+\end{document}
